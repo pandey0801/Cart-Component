@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CartItem from './CartItem'
+import { Context } from '../store/Context';
 
 export default function CartMain({closeCart}) 
 {
+
+  const {cartItem, totalItem} = useContext(Context);
+
+
+  // console.log(totalItem);
+
 const cartElements = [
 
     {
@@ -54,7 +61,7 @@ const cartElements = [
         </thead>
 
         <tbody>
-                  {cartElements.map((item, index) => (
+                  {cartItem.map((item, index) => (
                     <CartItem key={index} item={item} />
                   ))}
         </tbody>
@@ -92,7 +99,7 @@ const cartElements = [
 
 
           <div className='flex justify-end'>
-            <h1 className='text-xl'>total</h1>
+            <h1 className='text-xl'>total{totalItem}</h1>
           </div>
 
           <div className='flex justify-center '>

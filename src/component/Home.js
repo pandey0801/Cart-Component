@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../store/Context'
  function Home() {
+
+  const ctx = useContext(Context);
+  console.log(ctx)
+
   return (
     <>
     
@@ -19,7 +24,7 @@ import React from 'react'
         </div>
 
         <section className='flex justify-center h-[25rem] items-center'>
-        <table class="border-collapse border-b border-slate-500 ...">
+        <table class="border-collapse border-b border-slate-500">
   <tbody>
     <tr>
       <td className="border-b border-slate-700 text-2xl px-9">JUL16</td>
