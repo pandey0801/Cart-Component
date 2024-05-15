@@ -7,9 +7,6 @@ export default function CartMain({closeCart})
 
   const {cartItem, totalItem} = useContext(Context);
 
-
-  // console.log(totalItem);
-
 const cartElements = [
 
     {
