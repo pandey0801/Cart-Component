@@ -195,9 +195,7 @@ function Store() {
 
       {/* <ProductDetail/> */}
 
-      <Route path="/store/10"> 
-      <h1>it is path 10</h1>
-      </Route>
+      
     </>
   );
 }

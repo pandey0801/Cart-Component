@@ -6,6 +6,10 @@ export const Context = React.createContext(
     {
         item:[],
         totalItem:[],
+        // contactData:[],
+        token:'',
+        isLoggedIn:(token)=>{},
+
         addCart:()=>{},
         removeCart:()=>{},
         total:()=>{}
