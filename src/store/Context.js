@@ -8,7 +8,8 @@ export const Context = React.createContext(
         totalItem:[],
         // contactData:[],
         token:'',
-        isLoggedIn:(token)=>{},
+        isLoggedIn : false,
+        login:(token)=>{},
 
         addCart:()=>{},
         removeCart:()=>{},

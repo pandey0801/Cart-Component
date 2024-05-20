@@ -1,54 +1,3 @@
-// import React from 'react'
-// import { useRef } from 'react';
-
-// export default function Login() {
-    
-//     const emailInputRef = useRef();
-//     const passwordInputRef = useRef();
-  
-   
-//     const submitHandler = (event) => {
-//       event.preventDefault();
-//       console.log(emailInputRef, passwordInputRef);
-//     }
-
-
-//   return (
-//     <>
-//      <section>
-//       <h1>{'Login'}</h1>
-//       <form onSubmit={submitHandler}>
-//         <div >
-//           <label htmlFor='email'>Your Email</label>
-//           <input
-//             type='email'
-//             id='email'
-//             ref={emailInputRef}
-//             required
-//           />
-//         </div>
-
-//         <div >
-//           <label htmlFor='password'>Your Password</label>
-//           <input
-//             type='password'
-//             id='password'
-//             ref={passwordInputRef}
-//             required
-//           />
-//         </div>
-        
-//           <button
-//             type='button'
-//           >
-//             {'Login with existing account'}
-//           </button>
-//       </form>
-//     </section>
-//     </>
-//   )
-// }
-
 import React, { useCallback, useContext } from 'react';
 import { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -60,6 +9,7 @@ export default function Login() {
 
   const history = useHistory();
   const ctx = useContext(Context);
+ 
 
 
 //   const [isLoading, setIsLoading] = useState(false);
@@ -107,16 +57,16 @@ export default function Login() {
         // localStorage.setItem('token', token);
   
         // authCtx.login(data.idToken);
-        ctx.isLoggedIn(data.idToken)
+        ctx.login(data.idToken)
         history.replace('/store');
       })
       .catch(err => {
         alert(err.message);
       });
     
-    
-
   };
+
+  console.log(ctx.isLoggedIn);
 
   return (
     <>

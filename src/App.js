@@ -23,7 +23,9 @@ function App() {
   const initialToken = localStorage.getItem('token');
   const [token, setToken] = useState(initialToken)
 
-  const isLoggedIn = (token) =>{
+  const isLoggedIn = !!token;
+
+  const login = (token) =>{
     localStorage.setItem('token' , token);
     setToken(token);
 
@@ -37,6 +39,8 @@ function App() {
       }, 60000);
       
 };
+
+
 
   // Function to handle section click
   const handleSectionClick = (section) => {
@@ -70,7 +74,7 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{ cartItem, totalItem, addCart, removeCart, token, isLoggedIn }}>
+    <Context.Provider value={{ cartItem, totalItem, addCart, removeCart, token, login, isLoggedIn }}>
       <Router> {/* Wrap your application content with BrowserRouter */}
         <div>
           {/* Navbar */}
@@ -112,7 +116,9 @@ function App() {
         </Route>
         
         <Route path="/home" exact><Home/></Route>
-        <Route path="/store" exact><Store /></Route>
+        {(isLoggedIn && <Route path="/store" exact><Store /></Route>)}
+        {(!isLoggedIn && <Route path="/store" exact><Login /></Route>)}
+        
         <Route path="/about"><About /></Route>
         <Route path="/contact"><Contact /></Route>
         <Route path="/login"><Login/></Route>
